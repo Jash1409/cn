@@ -1,0 +1,30 @@
+
+sudo apt update
+
+sudo apt install wireshark -y
+
+sudo dpkg-reconfigure wireshark-common
+# → Select “Yes” when asked “Should non-superusers be able to capture packets?”
+
+sudo groupadd --force wireshark
+
+sudo usermod -aG wireshark $USER
+
+sudo chgrp wireshark /usr/bin/dumpcap
+
+sudo chmod 750 /usr/bin/dumpcap
+
+sudo setcap 'CAP_NET_RAW+eip CAP_NET_ADMIN+eip' /usr/bin/dumpcap
+
+getcap /usr/bin/dumpcap
+(# Expected output: /usr/bin/dumpcap = cap_net_admin,cap_net_raw+eip)
+
+reboot
+
+groups
+
+getcap /usr/bin/dumpcap
+
+dumpcap -D
+
+wireshark

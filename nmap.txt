@@ -1,0 +1,24 @@
+sudo apt update
+
+sudo apt install nmap -y (install map)
+
+nmap www.amazon.com (Scan a domain)
+
+nmap 192.168.1.10 (Scan a single IP)
+
+nmap 192.168.1.10 192.168.1.11 192.168.1.12 (Scan multiple IPs at once)
+
+nmap 192.168.3.* (Scan an entire subnet)
+
+sudo nmap -sL 192.168.3.0/24 ("List" targets only (no probes) — shows what would be scanned)
+
+nano targets.txt (create new file "targets")
+192.168.1.10
+192.168.1.11
+amazon.com
+
+press to save : ctrl + o -> Enter -> ctrl + x
+
+nmap -iL targets.txt 
+
+sudo nmap -sA 192.168.1.10 (ACK scan to map firewall rules / stateful filters)

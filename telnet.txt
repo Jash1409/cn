@@ -1,0 +1,49 @@
+suod apt-get update
+
+sudo apt-get install xinetd -y
+
+sudo nano /etc/xinetd.d/telnet
+service telnet
+{
+        disable         = no
+        flags           = REUSE
+        socket_type     = stream
+        wait            = no
+        user            = root
+        server          = /usr/sbin/in.telnetd
+        log_on_failure  += USERID
+}
+
+
+sudo systemctl restart xinetd
+
+sudo systemctl enable xinetd
+
+telnet localhost 80
+
+ip a
+
+ssh comp@192.168.3.89
+(if not installed follow : 
+ sudo apt install openssh-server -y
+ sudo systemctl start ssh
+ sudo systemctl enable ssh
+ sudo systemctl status ssh : should be active (running)
+ then ssh comp@192.168.3.89)
+
+ls
+
+echo "Hello SSH" > any file name from above
+
+echo "Hi this is a test file" > any file name from above
+
+echo " hi " > any file name from above
+
+mkdir testfolder
+
+cd testfolder
+
+echo "This is a new test file in a new file" > any file name from above
+
+
+
