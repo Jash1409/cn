@@ -1,0 +1,60 @@
+EXPERIMENT 1 COLOR CODE : WO O WG B WB G WBR BR
+
+
+
+
+
+6.	1. Network Topology Observed at KJSIT
+7.	The network topology observed at K. J. Somaiya Institute of Technology (KJSIT) follows a Hierarchical (Hybrid Star) topology.
+•	The central point of the network is the Core Switch (Cisco Catalyst 3850) located in the server room.
+•	This core switch connects to multiple access switches on each floor via fiber uplinks (SFP).
+•	Each access switch, in turn, connects to multiple end-user systems and devices, forming a star structure at each floor level.
+Hence, the overall structure forms a hierarchical star topology, where each floor has its own local star network connected hierarchically to the central core.
+8.	Justification:
+•	The use of a core switch (distribution layer) and multiple access switches (access layer) demonstrates a hierarchical design.
+•	Fiber interconnections and independent subnet IP ranges per floor ensure scalability and ease of management.
+9.	________________________________________
+10.	2. Key Networking Devices and Their Roles
+11.	The KJSIT network includes the following key devices:
+12.	Device	13.	Model	14.	Function
+15.	Firewall	16.	SonicWALL NSA 460	17.	Protects the internal network by filtering traffic and blocking 								unauthorized access.
+18.	Core Switch	19.	Cisco Catalyst 3850 (24 + 4 SFP)	20.	Acts as the backbone of the network, managing 											traffic between all building switches.
+21.	Access Switches	22.	Cisco SG500, SG300, SG200 Series	23.	Provide connectivity to computers, lab PCs, and 										Wi-Fi access points on each floor.
+24.	Router/Multiplexer	25.	Bharat Airtel ISP Gateway	26.	Connects the institute’s LAN to the external 											internet via a 150 Mbps leased line.
+27.	Servers	28.	DHCP, DNS, Authentication	29.	Manage dynamic IP assignments, name resolution, and user access 								control.
+30.	Interconnections:
+•	The core switch connects to each floor’s access switch via fiber optic uplinks (SFP).
+•	Access switches then distribute connectivity to local PCs and access points through Ethernet.
+•	The firewall connects between the ISP multiplexer and the core switch to secure all inbound and outbound data.
+31.	________________________________________
+32.	3. IP Addressing and Subnetting Implementation
+•	Each switch and device in the KJSIT network has a unique static IP address (e.g., 192.168.x.x range).
+•	IP addresses are logically assigned based on floor numbers and departments, simplifying network segmentation.
+•	Subnetting ensures that each department or floor has its own subnet, which:
+o	Reduces broadcast traffic.
+o	Increases network efficiency.
+o	Makes troubleshooting and management easier.
+33.	Example:
+•	192.168.1.x → Server Room and Core
+•	192.168.2.x → Ground Floor
+•	192.168.3.x → 1st Floor, etc.
+34.	This structured addressing improves scalability and simplifies network administration.
+35.	________________________________________
+36.	4. Configuration and Security Mechanisms on Servers
+37.	During observation, the following configurations and security mechanisms were identified:
+•	DHCP (Dynamic Host Configuration Protocol): Automatically assigns IP addresses to client devices within each subnet.
+•	DNS (Domain Name System): Resolves hostnames to IP addresses for internal and external communication.
+•	Firewall (SonicWALL NSA 460): Provides packet filtering, intrusion prevention, and access control lists (ACLs).
+•	Authentication (Active Directory/Local Server): Manages user logins, permissions, and access to shared resources.
+•	Bandwidth Management and Logging: Tracks and limits network usage per department or lab.
+38.	These configurations ensure that only authorized users and devices can access the network securely.
+39.	________________________________________
+40.	5. Suggested Improvement or Upgrade
+41.	Suggestion: Implement Network Monitoring and Management Software (e.g., PRTG, SolarWinds, or Cisco Prime).
+42.	Justification:
+•	Currently, network management may rely on manual supervision.
+•	By adding a centralized monitoring system, administrators can:
+o	Track real-time bandwidth usage and detect anomalies.
+o	Receive alerts for switch or link failures.
+o	Optimize traffic flow and enhance uptime.
+•	This would greatly improve network reliability, security, and performance.
