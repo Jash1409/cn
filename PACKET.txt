@@ -1,0 +1,41 @@
+or if downloaded:: sudo apt dpkg -i name_of_file
+packettracer
+option - NO
+
+
+1. take 2 routers - 1841
+2. take 2 switches - 2950-24
+3. take 4 pcs - PC PT
+4. make connection lower to upper
+
+go to click pc -> desktop -> the ip config
+5. give ip name - pc0 - 192.168.1.2
+pc1 - 192.168.1.3
+R1 to switch - 192.168.1.4
+R1 - 192.168.3.2
+
+pc0 - 192.168.2.2
+pc1 - 192.168.2.3
+R2 to switch2 - 192.168.2.4
+R2 - 192.168.3.3
+
+6. PC config all- select static
+ipv4: 192.168.1.2              1.3     2.2     2.3
+subnet mask: 255.255.255.0
+default gateway: 192.168.1.4   1.4      2.4     2.4(R1 to switch) diff for pc2 and 3
+
+7. router config R0- go to config -> FastEthernet0/0 - in IP Configuration - ipv4- 192.168.1.4 - turn port status 'ON'
+				FastEthernet0/1 - in IP Configuration - ipv4 add- 192.168.3.2 - turn port status 'ON'
+
+R1- go to config -> FastEthernet0/0 - in IP Configuration - ipv4- 192.168.2.4 - turn port status 'ON'
+				FastEthernet0/1 - in IP Configuration - ipv4 add- 192.168.3.3 - turn port status 'ON
+inside connections established
+
+8.  to make inter router connection
+
+router config R0- go to config -> static - Network - 192.168.2.0 - mask: 255.255.255.0 - Next hop: 192.168.3.3 - click 'Add'
+				
+R1- go to config -> static - Network - 192.168.1.0 - mask: 255.255.255.0 - Next hop: 192.168.3.2 - click 'Add'
+				
+9. click message and pass and check right bottom
+WAIT FOR CONFIGURATION IT MAY TAKE TIME
